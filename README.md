@@ -1,3 +1,9 @@
+## Curso de React.js 
+
+[ir al Curso](https://platzi.com/cursos/react-vite-tailwindcss/)
+
+--------------------------------------------------------------------------------------------------------------------
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
