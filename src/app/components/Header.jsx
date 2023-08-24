@@ -1,7 +1,8 @@
 'use client'
-
 import React from "react";
 import { usePathname } from "next/navigation";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import Link from "next/link";
 
 const leftNavLinks = [
@@ -52,6 +53,7 @@ const rightNavLinks = [
 
 export default function Header() {
     const pathName = usePathname()
+    const context = useContext(ShoppingCartContext)
     return (
         <header> 
             <nav className="flex justify-between items-center fixed z-10 w-full font-Outfit text-base py-4 px-6 top-0 bg-white">
@@ -98,8 +100,10 @@ export default function Header() {
                             </li>
                         )
                     })} 
-                    <li key='3'>
-                        🛒0
+                    <li 
+                    className="text-sm"
+                    key='3'>
+                        🛒{context.count}
                     </li>  
                 </ul>
             </nav>

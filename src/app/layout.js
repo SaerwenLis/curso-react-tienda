@@ -1,9 +1,10 @@
-import './globals.css'
-import Header from './components/Header'
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
+import Header from './components/Header';
+import './globals.css';
 
 export const metadata = {
-  title: 'Shopi Shop Online',
-  description: 'Shopi Shop Online',
+  title: 'Shopi: Online Shop',
+  description: 'Shopi: Online Shop',
 }
 
 export default function RootLayout({ children }) {
@@ -15,8 +16,10 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
       </head>
       <body className='font-Outfit'>
-        <Header />
-        {children}
+        <ShoppingCartProvider>
+          <Header />
+          {children}          
+        </ShoppingCartProvider>
       </body>
     </html>
   )
