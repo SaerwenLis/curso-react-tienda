@@ -10,20 +10,20 @@ const leftNavLinks = [
         href: "/"
     },
     {
-        name: "Clothes", 
-        href: "/clothes"
+        name: "Men's Clothing", 
+        href: "/men"
+    },
+    {
+        name: "Women's Clothing", 
+        href: "/women"
     },
     {
         name: "Electronics", 
         href: "/electronics"
     },
     {
-        name: "Furniture", 
-        href: "/furniture"
-    },
-    {
-        name: "Toys", 
-        href: "/toys"
+        name: "Jewelery", 
+        href: "/Jewelery"
     },
     {
         name: "Others", 
@@ -54,56 +54,55 @@ export default function Header() {
     const pathName = usePathname()
     return (
         <header> 
-            <nav className="flex justify-between items-center fixed z-10 w-full font-Outfit text-base py-4 px-6 top-0">
+            <nav className="flex justify-between items-center fixed z-10 w-full font-Outfit text-base py-4 px-6 top-0 bg-white">
                 <ul className="flex items-center gap-3">
                     <li> 
                         <Link
                             className="font-black text-lg"
                             href="/"
+                            key='1'
                             >
                             Shopi
                         </Link>
                     </li>
-                {leftNavLinks.map((link) => {
-                    const isActive = pathName === link.href
-                    return (
-                        <li>
-                            <Link
-                            className={`${isActive ? 'font-semibold underline underline-offset-4' : ''}`}
-                            href={link.href}
-                            key={link.name}
-                            >
-                            {link.name}
-                            </Link>
-                        </li>
-                    )
-                })}   
+                    {leftNavLinks.map((link) => {
+                        const isActive = pathName === link.href
+                        return (
+                            <li>
+                                <Link
+                                className={`${isActive ? 'font-semibold underline underline-offset-4' : ''}`}
+                                href={link.href}
+                                key={link.name}
+                                >
+                                {link.name}
+                                </Link>
+                            </li>
+                        )
+                    })}   
                 </ul>
                 <ul className="flex items-center gap-3">
-                    <li className="font-light text-gray-600">
+                    <li className="font-light text-gray-600" key='2'>
                         prueba@platzi.com
                     </li>
-                {rightNavLinks.map((link) => {
-                    const isActive = pathName === link.href
-                    return (
-                        <li>
-                            <Link
-                            className={`${isActive ? 'font-semibold underline underline-offset-4' : ''}`}
-                            href={link.href}
-                            key={link.name}
-                            >
-                            {link.name}
-                            </Link>
-                        </li>
-                    )
-                })} 
-                <li>
-                    🛒0
-                </li>  
+                    {rightNavLinks.map((link) => {
+                        const isActive = pathName === link.href
+                        return (
+                            <li>
+                                <Link
+                                className={`${isActive ? 'font-semibold underline underline-offset-4' : ''}`}
+                                href={link.href}
+                                key={link.name}
+                                >
+                                {link.name}
+                                </Link>
+                            </li>
+                        )
+                    })} 
+                    <li key='3'>
+                        🛒0
+                    </li>  
                 </ul>
-
             </nav>
-        
         </header>
     )
 }
