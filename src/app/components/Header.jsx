@@ -1,8 +1,8 @@
 'use client'
-import React from "react";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
+import { CartIcon } from "../assets/CartIcon";
 import Link from "next/link";
 
 const leftNavLinks = [
@@ -101,9 +101,10 @@ export default function Header() {
                         )
                     })} 
                     <li 
-                    className="text-sm"
+                    className="flex justify-center items-center"
                     key='3'>
-                        🛒{context.count}
+                        <CartIcon/>
+                        <span className="w-4 h-4 rounded-full bg-black text-white flex justify-center items-center text-xs relative right-3 bottom-1">{context.count}</span>
                     </li>  
                 </ul>
             </nav>
