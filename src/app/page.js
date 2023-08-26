@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"; */
 import Card from "./components/Card";
 import LayoutWrapper from "./components/LayoutWrapper";
+import ProductDetail from "./components/ProductDetail";
 
 async function getData() {
   const response = await fetch('https://fakestoreapi.com/products')    
@@ -30,6 +31,7 @@ export default async function Home() {
           ))
         }        
       </div>
+      <ProductDetail />
     </LayoutWrapper>
   )
 }
