@@ -1,4 +1,5 @@
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
+import CheckOutSideMenu from './components/CheckoutSideMenu'
 import Header from './components/Header';
 import './globals.css';
 
@@ -18,7 +19,8 @@ export default function RootLayout({ children }) {
       <body className='font-Outfit'>
         <ShoppingCartProvider>
           <Header />
-          {children}          
+          {children} 
+          <CheckOutSideMenu />      
         </ShoppingCartProvider>
       </body>
     </html>
