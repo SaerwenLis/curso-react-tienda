@@ -38,10 +38,6 @@ const rightNavLinks = [
         href: "/my-account"
     },
     {
-        name: "My Order", 
-        href: "/my-order"
-    },
-    {
         name: "My Orders", 
         href: "/my-orders"
     },
