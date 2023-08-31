@@ -24,6 +24,7 @@ export default function CheckOutSideMenu() {
 
         context.setOrder([...context.order, orderToAdd])
         context.setCartProducts([])
+        context.closeCheckOutSideMenu()
     }
 
   return (
