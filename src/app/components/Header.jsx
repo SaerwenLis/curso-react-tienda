@@ -56,7 +56,7 @@ export default function Header() {
                 <ul className="flex items-center gap-3">
                     <li> 
                         <Link
-                            className="font-black text-lg"
+                            className="font-black text-2xl relative top-[-2.66px]"
                             href="/"
                             key='1'
                             >
