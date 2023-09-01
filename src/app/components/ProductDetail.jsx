@@ -13,7 +13,7 @@ export default function ProductDetail() {
         context.openCheckOutSideMenu()
     }  */
   return (
-    <aside className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} w-[360px] h-[calc(100vh-60px)] flex-col items-center fixed right-0 top-[60px] bg-white border border-slate-500 rounded-lg`}>
+    <aside className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} w-[360px] h-[calc(100vh-64px)] flex-col items-center fixed right-0 top-[64px] bg-white border border-slate-500 rounded-lg`}>
         <div className="w-full flex justify-between items-center py-4 px-6">
             <h2 className="font-medium text-xl">Detail</h2>
             <button 
