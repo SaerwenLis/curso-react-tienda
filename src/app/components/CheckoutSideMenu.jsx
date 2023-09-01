@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Link from "next/link";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import OrderCard from "./OrderCard";
-import { totalPrice } from "../utils/utils";
+import { totalPrice, dateTime } from "../utils/utils";
 
 export default function CheckOutSideMenu() {
     const context = useContext(ShoppingCartContext)
@@ -14,9 +14,12 @@ export default function CheckOutSideMenu() {
         context.setCartProducts(filteredProducts)
     }
 
+/*     const today = new Date()
+    const jsonDate = today.toLocaleDateString('es-AR') */
+
     const handleCheckout = () => {
         const orderToAdd = {
-            date: new Date(),
+            date: dateTime(),
             products: context.cartProducts,
             totalProducts: context.cartProducts.length,
             totalPrice: totalPrice(context.cartProducts)
