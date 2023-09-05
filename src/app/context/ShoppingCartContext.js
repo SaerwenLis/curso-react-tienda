@@ -26,6 +26,31 @@ export const ShoppingCartProvider = ({children}) => {
     //Shopping cart - order
     const [order, setOrder] = useState([])
 
+    //Get Products
+    const [items, setItems] = useState(null)
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(data => setItems(data))
+    }, []) 
+
+    //Search products by title
+    const [searchByTitle, setSearchByTitle] = useState(null)
+
+    //Filtered items
+    const [filteredItems, setFilteredItems] = useState(null)
+
+    const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+
+    useEffect(() => {
+        if(searchByTitle) {
+            setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+        }
+    }, [items, searchByTitle]) 
+
     return (
         <ShoppingCartContext.Provider value={{
             count, 
@@ -41,7 +66,12 @@ export const ShoppingCartProvider = ({children}) => {
             openCheckOutSideMenu,
             closeCheckOutSideMenu, 
             order, 
-            setOrder
+            setOrder,
+            items, 
+            setItems, 
+            searchByTitle,
+            setSearchByTitle,
+            filteredItems
         }}>
            {children}         
         </ShoppingCartContext.Provider>
