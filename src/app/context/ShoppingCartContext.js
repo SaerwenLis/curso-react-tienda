@@ -4,9 +4,6 @@ import { createContext, useEffect, useState } from "react";
 export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({children}) => {
-    //Shopping cart - Increment quantity
-    const [count, setCount] = useState(0)
-
     //Shopping cart - add products to cart
     const [cartProducts, setCartProducts] = useState([])
 
@@ -50,7 +47,7 @@ export const ShoppingCartProvider = ({children}) => {
     const [searchByCategory, setSearchByCategory] = useState(null)
 
     const filteredItemsByCategory = (items, searchByCategory) => {
-        return items?.filter(item => item.category.toLowerCase().includes(searchByCategory.toLowerCase()))
+        return items?.filter(item => item.category.toLowerCase() === searchByCategory.toLowerCase())
     }
 
     const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
@@ -85,8 +82,6 @@ export const ShoppingCartProvider = ({children}) => {
 
     return (
         <ShoppingCartContext.Provider value={{
-            count, 
-            setCount, 
             openProductDetail,
             closeProductDetail,
             isProductDetailOpen,

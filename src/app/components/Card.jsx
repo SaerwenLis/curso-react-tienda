@@ -14,7 +14,6 @@ export default function Card({ data }) {
 
     const addProductToCart = (event, data) => {
         event.stopPropagation()
-        context.setCount(context.count + 1)
         context.setCartProducts([...context.cartProducts, data])
         context.openCheckOutSideMenu()
         context.closeProductDetail()

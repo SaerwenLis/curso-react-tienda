@@ -113,9 +113,10 @@ export default function Header() {
                         )
                     })} 
                     <li 
-                    className="flex justify-center items-center">
+                    onClick={() => context.openCheckOutSideMenu()}
+                    className="flex justify-center items-center cursor-pointer">
                         <CartIcon/>
-                        <span className="w-4 h-4 rounded-full bg-black text-white flex justify-center items-center text-xs relative right-3 bottom-1">{context.count}</span>
+                        <span className="w-4 h-4 rounded-full bg-black text-white flex justify-center items-center text-xs relative right-3 bottom-1">{context.cartProducts.length}</span>
                     </li>  
                 </ul>
             </nav>
