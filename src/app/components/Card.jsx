@@ -44,9 +44,9 @@ export default function Card({ data }) {
         <article 
         onClick={() => showProduct(data)}
         className="bg-white cursor-pointer w-56 h-60">
-            <figure className="relative mb-2 w-full h-4/5">
+            <figure className="relative mb-2 w-full h-4/5 bg-slate-100 rounded-lg">
+                <img className="w-full h-full object-cover rounded-lg mix-blend-multiply" src={data.image} alt={data.title} />
                 <span className="absolute bottom-0 left-0 bg-white/70 rounded-lg text-black text-xs m-2 px-3 first-letter:capitalize">{data.category}</span>
-                <img className="w-full h-full object-cover rounded-lg" src={data.image} alt={data.title} />
             {renderIcon(data.id)}
             </figure>
             <p className="flex justify-between">
