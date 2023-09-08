@@ -1,11 +1,12 @@
 'use client'
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Card from "./Card";
 import LayoutWrapper from "./LayoutWrapper";
 import ProductDetail from "./ProductDetail";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { SearchIcon } from "../assets/SearchIcon";
 import { usePathname } from "next/navigation";
+import Spinner from "./Spinner";
 
 export default function RenderProducts() {
   const context = useContext(ShoppingCartContext)
@@ -51,7 +52,6 @@ export default function RenderProducts() {
       )
     }
   }
-/*   console.log('filtered ', context.filteredItems, 'search ', context.searchByTitle); */
 
   return (
     <LayoutWrapper >
@@ -64,9 +64,9 @@ export default function RenderProducts() {
         onChange={(event) => context.setSearchByTitle(event.target.value)} />
         <SearchIcon />
       </div>
-      <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {renderView()}        
-      </div>
+      {
+        context.loading ? <Spinner /> : <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">{renderView()}</div>
+      }
       <ProductDetail />
     </LayoutWrapper>
   )

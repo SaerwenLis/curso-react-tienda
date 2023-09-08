@@ -23,13 +23,17 @@ export const ShoppingCartProvider = ({children}) => {
     //Shopping cart - order
     const [order, setOrder] = useState([])
 
+    //Loading
+    const [loading, setLoading] = useState(true)
+
     //Get Products
     const [items, setItems] = useState(null)
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
         .then(response => response.json())
-        .then(data => setItems(data))
+        .then(data => setItems(data)) 
+        setLoading(false)
     }, []) 
 
     //Search products by title
@@ -99,7 +103,8 @@ export const ShoppingCartProvider = ({children}) => {
             searchByTitle,
             setSearchByTitle,
             filteredItems, 
-            setSearchByCategory
+            setSearchByCategory,
+            loading
         }}>
            {children}         
         </ShoppingCartContext.Provider>
