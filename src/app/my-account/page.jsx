@@ -4,8 +4,7 @@ import LayoutWrapper from "../components/LayoutWrapper";
 export default function MyAccount() {
   return (
     <LayoutWrapper>
-      My Account
-
+      <h1 className="mb-2 font-bold text-lg">My Account</h1>
     </LayoutWrapper>
   )
 }
