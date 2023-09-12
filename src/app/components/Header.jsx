@@ -79,7 +79,9 @@ export default function Header() {
     }
 
     const handleCartButton = () => {
-        context.setNavBar(false)
+        if (window.innerWidth < 1280) {
+            context.setNavBar(false)
+        } 
         context.openCheckOutSideMenu()
     }
  
@@ -145,7 +147,6 @@ export default function Header() {
                                     <Link
                                     className={`${isActive ? 'font-semibold underline underline-offset-4' : ''}`}
                                     href={link.href}
-                                    onClick={() => context.setNavBar(false)}
                                     >
                                     {link.name}
                                     </Link>

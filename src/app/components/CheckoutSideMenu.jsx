@@ -27,7 +27,6 @@ export default function CheckOutSideMenu() {
         context.setCartProducts([])
         context.closeCheckOutSideMenu()
         context.setSearchByTitle(null)
-        context.setNavBar(false)
     }
 
   return (
