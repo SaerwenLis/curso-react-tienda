@@ -15,6 +15,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=''/>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+        <meta property='og:title' content='Tienda Shopi'/>
+        <meta property='og:description' content='Desarrollo de tienda online con NextJS y TailwindCSS'/>
       </head>
       <body className='font-Outfit'>
         <ShoppingCartProvider>
