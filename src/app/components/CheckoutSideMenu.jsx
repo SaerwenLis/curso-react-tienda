@@ -27,10 +27,11 @@ export default function CheckOutSideMenu() {
         context.setCartProducts([])
         context.closeCheckOutSideMenu()
         context.setSearchByTitle(null)
+        context.setNavBar(false)
     }
 
   return (
-    <aside className={`${context.isCheckOutSideMenuOpen ? 'flex' : 'hidden'} w-[360px] h-[calc(100vh-60px)] flex-col fixed right-0 top-[64px] bg-white border border-slate-500 rounded-lg`}>
+    <aside className={`${context.isCheckOutSideMenuOpen ? 'flex' : 'hidden'} w-[360px] h-[calc(100vh-60px)] flex-col fixed right-0 top-[64px] bg-white border border-slate-500 rounded-lg z-0`}>
         <div className="w-full flex justify-between items-center py-4 px-6">
             <h2 className="font-medium text-xl">My Order</h2>
             <button 

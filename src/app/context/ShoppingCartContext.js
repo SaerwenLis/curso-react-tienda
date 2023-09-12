@@ -54,6 +54,9 @@ export const ShoppingCartProvider = ({children}) => {
         return items?.filter(item => item.category.toLowerCase() === searchByCategory.toLowerCase())
     }
 
+    //NavBar
+    const [navBar, setNavBar] = useState(true)
+
     const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
         if (searchType === 'BY_TITLE') {
             return filteredItemsByTitle(items, searchByTitle)
@@ -104,7 +107,9 @@ export const ShoppingCartProvider = ({children}) => {
             setSearchByTitle,
             filteredItems, 
             setSearchByCategory,
-            loading
+            loading, 
+            navBar, 
+            setNavBar
         }}>
            {children}         
         </ShoppingCartContext.Provider>

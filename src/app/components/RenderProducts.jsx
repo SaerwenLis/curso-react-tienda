@@ -54,9 +54,9 @@ export default function RenderProducts() {
   }
 
   return (
-    <LayoutWrapper >
+    <LayoutWrapper>
       {renderTitle()}
-      <div className="flex rounded-md border border-gray-400 w-80 p-2 mb-4">
+      <div className="flex rounded-md border border-gray-400 md:w-80 w-72 p-2 mb-4">
         <input 
         type="text" 
         placeholder="Search products"
@@ -65,7 +65,7 @@ export default function RenderProducts() {
         <SearchIcon />
       </div>
       {
-        context.loading ? <Spinner /> : <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">{renderView()}</div>
+        context.loading ? <Spinner /> : <div className="grid gap-4 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 w-full max-w-screen-lg justify-items-center">{renderView()}</div>
       }
       <ProductDetail />
     </LayoutWrapper>
