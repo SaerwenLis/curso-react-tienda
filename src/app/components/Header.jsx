@@ -101,7 +101,6 @@ export default function Header() {
         })
     },[])
 
-
     return (
         <header> 
             <nav className="flex flex-col xl:flex-row items-center xl:fixed z-10 w-full xl:h-16 font-Outfit text-base top-0 bg-white">
