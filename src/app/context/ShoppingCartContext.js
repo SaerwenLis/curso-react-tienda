@@ -54,25 +54,21 @@ export const ShoppingCartProvider = ({children}) => {
         return items?.filter(item => item.category.toLowerCase() === searchByCategory.toLowerCase())
     }
 
-    //NavBar
-    const [navBar, setNavBar] = useState(true)
-
-    const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
-        if (searchType === 'BY_TITLE') {
-            return filteredItemsByTitle(items, searchByTitle)
-        }
-        if (searchType === 'BY_CATEGORY') {
-            return filteredItemsByCategory(items, searchByCategory)
-        }
-        if (searchType === 'BY_TITLE_AND_CATEGORY') {
-            return filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
-        }
-        if (!searchType) {
-            return items
-        }
-    }
-
     useEffect(() => {
+        const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
+            if (searchType === 'BY_TITLE') {
+                return filteredItemsByTitle(items, searchByTitle)
+            }
+            if (searchType === 'BY_CATEGORY') {
+                return filteredItemsByCategory(items, searchByCategory)
+            }
+            if (searchType === 'BY_TITLE_AND_CATEGORY') {
+                return filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+            }
+            if (!searchType) {
+                return items
+            }
+        }
         if(searchByTitle && searchByCategory) {
             setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
         }
@@ -86,6 +82,9 @@ export const ShoppingCartProvider = ({children}) => {
             setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory))
         }
     }, [items, searchByTitle, searchByCategory]) 
+
+    //NavBar
+    const [navBar, setNavBar] = useState(true)
 
     return (
         <ShoppingCartContext.Provider value={{

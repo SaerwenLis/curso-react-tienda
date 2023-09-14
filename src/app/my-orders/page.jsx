@@ -12,7 +12,7 @@ export default function MyOrders() {
       <h1 className="mb-2 font-bold text-lg">My Orders</h1>
       {
         context.order.map((order, index) => (
-          <Link href={`/my-orders/${index}`}>
+          <Link href={`/my-orders/${index}`} key={index}>
             <OrdersList 
               key={index}
               date={order.date} 

@@ -1,12 +1,15 @@
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 import CheckOutSideMenu from './components/CheckoutSideMenu'
 import Header from './components/Header';
+import { Outfit } from 'next/font/google';
 import './globals.css';
 
 export const metadata = {
   title: 'Shopi: Online Shop',
   description: 'Shopi: Online Shop',
 }
+
+const outfit = Outfit({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {
   return (
@@ -18,7 +21,7 @@ export default function RootLayout({ children }) {
         <meta property='og:title' content='Tienda Shopi'/>
         <meta property='og:description' content='Desarrollo de tienda online con NextJS y TailwindCSS'/>
       </head>
-      <body className='font-Outfit'>
+      <body className={outfit.className}>
         <ShoppingCartProvider>
           <Header />
           {children} 

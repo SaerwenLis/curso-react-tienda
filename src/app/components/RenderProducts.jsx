@@ -28,9 +28,9 @@ export default function RenderProducts() {
         return <span>Home</span>
     } else {
         if (path === 'men') {
-            return <span>Men's Clothing</span>
+            return <span>Men&apos;s Clothing</span>
         } else if (path === 'women') {
-            return <span>Women's Clothing</span>
+            return <span>Women&apos;s Clothing</span>
         } else {
             return <span>{path}</span>     
         }
@@ -41,10 +41,10 @@ export default function RenderProducts() {
     if (context.searchByTitle?.length > 0) {
       if (context.filteredItems?.length > 0) {
         return (
-          <h1 className="mb-2 font-bold text-lg">Results for "{context.searchByTitle}"</h1>
+          <h1 className="mb-2 font-bold text-lg">Results for &quot;{context.searchByTitle}&quot;</h1>
         ) 
       } else {
-        return <div className="mb-2 font-bold text-lg">No results for {context.searchByTitle}</div>
+        return <div className="mb-2 font-bold text-lg">No results for &quot;{context.searchByTitle}&quot;</div>
       }
     } else {
       return (
