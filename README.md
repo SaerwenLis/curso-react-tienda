@@ -1,5 +1,7 @@
 ## Curso de React.js 
 
+[Deploy](https://playful-mandazi-980788.netlify.app/)
+
 [ir al Curso](https://platzi.com/cursos/react-vite-tailwindcss/)
 
 --------------------------------------------------------------------------------------------------------------------
