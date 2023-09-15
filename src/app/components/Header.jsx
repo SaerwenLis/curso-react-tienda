@@ -90,11 +90,6 @@ export default function Header() {
             if (window.innerWidth > 1280) {
                 context.setNavBar(true)
             } 
-        })
-    },[])
-
-    useEffect(() => {
-        window.addEventListener("resize", () => {
             if (window.innerWidth < 1280) {
                 context.setNavBar(false)
             } 
