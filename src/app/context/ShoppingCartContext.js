@@ -24,12 +24,17 @@ export const ShoppingCartProvider = ({children}) => {
     const [order, setOrder] = useState([])
 
     //Get Products
-    const [items, setItems] = useState(null)
+    const [items, setItems] = useState([])
 
     useEffect(() => {
-        fetch('/api')
-        .then(response => response.json())
-        .then(data => setItems(data.data)) 
+        (async () => {
+            // get the data from the api
+            const data = await fetch('/api');
+            // convert data to json
+            const json = await data.json();
+            console.log(json.data);
+            setItems(json?.data)
+        })(); 
     }, []) 
 
     //Search products by title
@@ -46,37 +51,40 @@ export const ShoppingCartProvider = ({children}) => {
     //Filtered items by categories
     const [searchByCategory, setSearchByCategory] = useState(null)
 
-    const filteredItemsByCategory = (items, searchByCategory) => {
-        return items?.filter(item => item.category.toLowerCase() === searchByCategory.toLowerCase())
+    const filteredItemsByCategory = async (items, searchByCategory) => {
+        return await items?.filter(item => item.category.toLowerCase() === searchByCategory.toLowerCase())
     }
 
+    
     useEffect(() => {
-        const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
-            if (searchType === 'BY_TITLE') {
-                return filteredItemsByTitle(items, searchByTitle)
+        (async () => {
+            const filterBy = async (searchType, items, searchByTitle, searchByCategory) => {
+                if (searchType === 'BY_TITLE') {
+                    return await filteredItemsByTitle(items, searchByTitle)
+                }
+                if (searchType === 'BY_CATEGORY') {
+                    return await filteredItemsByCategory(items, searchByCategory)
+                }
+                if (searchType === 'BY_TITLE_AND_CATEGORY') {
+                    return await filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+                }
+                if (!searchType) {
+                    return await items
+                }
             }
-            if (searchType === 'BY_CATEGORY') {
-                return filteredItemsByCategory(items, searchByCategory)
+            if(searchByTitle && searchByCategory) {
+                setFilteredItems(await filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
             }
-            if (searchType === 'BY_TITLE_AND_CATEGORY') {
-                return filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+            if(searchByTitle && !searchByCategory) {
+                setFilteredItems(await filterBy('BY_TITLE', items, searchByTitle, searchByCategory))
             }
-            if (!searchType) {
-                return items
+            if(!searchByTitle && searchByCategory) {
+                setFilteredItems(await filterBy('BY_CATEGORY', items, searchByTitle, searchByCategory))
             }
-        }
-        if(searchByTitle && searchByCategory) {
-            setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
-        }
-        if(searchByTitle && !searchByCategory) {
-            setFilteredItems(filterBy('BY_TITLE', items, searchByTitle, searchByCategory))
-        }
-        if(!searchByTitle && searchByCategory) {
-            setFilteredItems(filterBy('BY_CATEGORY', items, searchByTitle, searchByCategory))
-        }
-        if(!searchByTitle && !searchByCategory) {
-            setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory))
-        }
+            if(!searchByTitle && !searchByCategory) {
+                setFilteredItems(await filterBy(null, items, searchByTitle, searchByCategory))
+            }
+        })();   
     }, [items, searchByTitle, searchByCategory]) 
 
     //NavBar
