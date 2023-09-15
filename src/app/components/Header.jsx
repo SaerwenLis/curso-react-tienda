@@ -119,7 +119,7 @@ export default function Header() {
                     </button>
                 </div>
                 <div className={`h-full w-full flex-col xl:flex-row justify-between items-center ${context.navBar ? 'flex' : 'hidden'}`}>
-                   <ul className="flex flex-col xl:flex-row items-center gap-3 xl:my-0 my-10">
+                   <ul className="flex flex-col xl:flex-row items-center gap-3 xl:my-0 my-12">
                     {leftNavLinks.map((link) => {
                         const isActive = pathName === link.href
                         return (
