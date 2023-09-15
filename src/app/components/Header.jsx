@@ -104,7 +104,7 @@ export default function Header() {
     return (
         <header> 
             <nav className="flex flex-col xl:flex-row items-center xl:fixed z-10 w-full xl:h-16 relative font-Outfit text-base top-0 bg-white">
-                <div className="flex justify-between items-center fixed xl:static bg-white w-full h-12 xl:h-16 xl:py-4 z-10 xl:block xl:w-28 px-6">
+                <div className="flex justify-between items-center fixed xl:static top-0 bg-white w-full h-12 xl:h-16 xl:py-4 z-10 xl:block xl:w-28 px-6">
                     <button> 
                         <Link
                             className="font-black text-2xl relative top-[-2.7px]"
