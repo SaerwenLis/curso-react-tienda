@@ -6,7 +6,6 @@ import ProductDetail from "./ProductDetail";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { SearchIcon } from "../assets/SearchIcon";
 import { usePathname } from "next/navigation";
-import Spinner from "./Spinner";
 
 export default function RenderProducts() {
   const context = useContext(ShoppingCartContext)
@@ -64,9 +63,7 @@ export default function RenderProducts() {
         onChange={(event) => context.setSearchByTitle(event.target.value)} />
         <SearchIcon />
       </div>
-      {
-        context.loading ? <Spinner /> : <div className="grid gap-4 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 w-full max-w-screen-lg justify-items-center">{renderView()}</div>
-      }
+      <div className="grid gap-4 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 w-full max-w-screen-lg justify-items-center">{renderView()}</div>
       <ProductDetail />
     </LayoutWrapper>
   )
